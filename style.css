@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(191, 224, 255);
+    overflow: hidden;
+}
+.c{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+    width: 300px;
+    height: 615px;
+    transition: 0.5s;
+    border-radius: 50%;
+}
+.body{
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 11px solid #244457;
+    overflow: hidden;
+    background: #edf1fe;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 10px 10px #afe2f8,
+     inset -10px -10px rgb(127, 177, 199);
+}
+.body .ball{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background: #ffd900;
+    border: solid 10px #244457;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+}
+.ball:nth-child(1),
+.ball:nth-child(2){
+    animation: bola 0.6s linear forwards;
+}
+@keyframes bola {
+    100%{
+        width: 140px;
+        height: 140px;
+    }
+}
+.body .ball:nth-child(3){
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background: #ffd900;
+    border: solid 10.5px #244457;
+    animation: bolaa 0.6s linear forwards
+}
+@keyframes bolaa {
+    100%{
+        width: 180px;
+        height: 180px;
+    }
+}
+.ball::before{
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    border: solid 9px #244457;
+    background: rgb(229, 255, 254);
+}
+.body .ball:nth-child(1){
+    top: -45px;
+    left: -10px;
+}
+.body .ball:nth-child(2){
+    bottom: 0px;
+    right: -58px;
+}
+.body .ball:nth-child(3){
+    bottom: -75px;
+    left: -70px;
+    border-radius: 80%;
+}
+.ball:nth-child(3)::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    transform: scale(0.4);
+    border-radius: 50%;
+    top: -30px;
+    right: 20px
+}
+.ball:nth-child(3)::after{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 1px;
+    height: 1px;
+    transform: scale(7.6);
+    background: #244457;
+    top: -100px;
+    right: -80px
+}
+.body .line,
+.body .line2,
+.body .line3
+{
+    position: relative;
+    width: 11px;
+    height: 0%;
+    background: #244457;
+    z-index: 3;
+}
+.body .line{
+    transform: translate(0px, 60px) rotate(70deg);
+    animation: size 0.8s 0.2s linear forwards;
+}
+@keyframes size {
+    100%{
+        height: 100%;
+    }
+}
+.body .line2{
+    transform: translate(75px) rotate(-50deg);
+    animation: size2 0.8s 0.4s linear forwards;
+}
+@keyframes size2 {
+    100%{
+        height: 100%;
+    }
+}
+.body .line3{
+    transform: translate(-100px) rotate(15deg);
+    animation: size3 0.8s 0.6s linear forwards;
+}
+@keyframes size3 {
+    100%{
+        height: 100%;
+    }
+}
+body.active .body{
+    animation: rotate 12s linear infinite;
+}
+@keyframes rotate {
+    100%{
+    transform: rotate(3360deg);
+    }
+}
+.head{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    border: solid 9px #244457;
+    border-bottom: 0px;
+    width: 190px;
+    height: 100px;
+    background: #edf1fe;
+    border-radius: 100px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    top: 68px;
+    z-index: 12;
+    box-shadow: inset 18px 0px #fff,
+     inset -10px  0px #C3DEEE;
+    
+}
+.head .bottom{
+    position: absolute;
+    width: 86%;
+    height: 9px;
+    bottom: -28px;
+    background: #244457;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom::before{
+    content: '';
+    position: absolute;
+    width: 130px;
+    height: 28px;
+    background: #a7dbf1;
+    z-index: -1;
+    bottom: 0px;
+    left: -3px;
+    transform: skew(37deg)
+}
+.bottom::after{
+    content: '';
+    position: absolute;
+    width: 130px;
+    height: 28px;
+    background: #7fb1c7;
+    z-index: -1;
+    bottom: 0px;
+    right: -3px;
+    transform: skew(-37deg)
+}
+.head::before{
+    content: '';
+    position: absolute;
+    background: #244457;
+    width: 35px;
+    height: 7px;
+    bottom: -17px;
+    left: -12px;
+    transform: rotate(53deg) skew(-30deg);
+    z-index: 5;
+}
+.head::after{
+    content: '';
+    position: absolute;
+    background: #244457;
+    width: 35px;
+    height: 7px;
+    bottom: -17px;
+    right: -12px;
+    transform: rotate(-53deg) skew(30deg);
+    z-index: 5;
+}
+.head .eye{
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #2f6a8a;
+    border: solid 7px #244457;
+    overflow: hidden;
+}
+.eye .brilho{
+    position: relative;
+    width: 18px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.288);
+    transform: rotate(-50deg) translate(40px);
+    animation: 0.5s 0.5s oia linear;
+}
+.eye .brilho::before{
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.288);
+    animation: 0.2s 0.2s zoom linear;
+}
+@keyframes zoom {
+    100%{
+    transform: rotate(0) translate(-80px);
+    }
+}
+@keyframes oia {
+    100%{
+    transform: rotate(-50deg) translate(-40px);
+    }
+}
+body.active .brilho{
+    animation: piscada 1.5s linear infinite;
+}
+@keyframes piscada {
+    100%{
+    transform: rotate(-50deg) translate(-40px);
+    }
+}
+.eye::before{
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 70px;
+    background: #9ac7e2;
+    box-shadow: 0px 0px 3px #9ac7e2;
+    transform: rotate(30deg);
+}
+.eye::after{
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 70px;
+    background: #9ac7e2;
+    box-shadow: 0px 0px 3px #9ac7e2;
+    transform: translate(20px) rotate(30deg);
+}
+body.active .eye{
+    animation: eye 3s infinite alternate;
+}
+@keyframes eye {
+    20%{
+        transform: translate(-20px, -6px)
+    }
+    40%{
+        transform: translate(20px, 6px)
+    }
+    60%{
+        transform: translate(-25px, 10px)
+    }
+    80%{
+        transform: translate(0px, 15px)
+    }
+    90%{
+        transform: translate(20px, -8px)
+    }
+    100%{
+        transform: translate(0px, 0px)
+    }
+}
+body.active .c{
+    animation: movi 2s linear infinite alternate;
+}
+@keyframes movi {
+    0%{
+        transform: translate(0,0) rotate(12deg);
+    }
+    50%{
+        transform: translate(0,0) rotate(-20deg);
+    }
+    70%{
+        transform: translate(0,0) rotate(20deg);
+    }
+    100%{
+        transform: translate(0,0) rotate(28deg);
+    }
+}
+.floor{
+    position: absolute;
+    width: 50%;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    overflow: hidden
+}
+.chao span{
+    position: absolute;
+    height: 8px;
+    width: 100px;
+    background: #244457;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.floor .chao{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+body.active .chao{
+    animation: andando 1.5s linear infinite;
+}
+@keyframes andando {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+span:nth-child(1){
+    left: 0;
+    width: 80px;
+}
+span:nth-child(2){
+    left: 95px;
+    width: 30px;
+}
+span:nth-child(3){
+    left: 140px;
+    width: 70px;
+}
+span:nth-child(5){
+    left: 230px;
+    width: 40px;
+}
+span:nth-child(6){
+    right: 0px;
+    width: 40px;
+}
+span:nth-child(7){
+    right: 50px;
+    width: 80px;
+}
+span:nth-child(8){
+    right: 140px;
+    width: 60px;
+}
+span:nth-child(9){
+    right: 220px;
+    width: 50px;
+}
+span:nth-child(10){
+    right: -70px;
+    width: 20px;
+}
+span:nth-child(11){
+    right: -120px;
+    width: 100px;
+}
+span:nth-child(12){
+    right: -210px;
+    width: 80px;
+}
+span:nth-child(13){
+    right: -240px;
+    width: 20px;
+}
+span:nth-child(14){
+    right: -290px;
+    width: 40px;
+}
+span:nth-child(15){
+    right: -330px;
+    width: 30px;
+}
+span:nth-child(16){
+    right: -350px;
+    width: 40px;
+}
+span:nth-child(16){
+    right: -360px;
+    width: 40px;
+}
+span:nth-child(17){
+    right: -420px;
+    width: 50px;
+}
+span:nth-child(18){
+    right: -530px;
+    width: 90px;
+}
+span:nth-child(19){
+    right: -600px;
+    width: 60px;
+}
+span:nth-child(20){
+    right: -650px;
+    width: 30px;
+}
+.floor h2{
+    position: absolute;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    font-family: 'Press Start 2P', cursive;
+    color: #24445762;
+    margin-top: 35px;
+    margin-left: -20px;
+    animation: font 0.8s 1.2s linear infinite alternate;
+    transition: 0.5s;
+    opacity: 0;
+}
+@keyframes font {
+    100%{
+        font-size: 12px;
+        opacity: 1;
+    }
+}
+body.active h2{
+    opacity: 0;
+}
+@media (max-width: 940px){
+    .floor{
+        width: 80%;
+    }
+}
+.head .ponto{
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #244457;
+    border-radius: 50%;
+    right: 20px;
+    bottom: 20px;
+}
+.body .pontoo{
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #244457;
+    border-radius: 50%;
+}
+.pontoo:nth-child(1){
+    left: 20px
+}
