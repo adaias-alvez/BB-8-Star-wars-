@@ -489,6 +489,9 @@ body.active h2{
     .floor{
         width: 80%;
     }
+    body.active .chao{
+    animation: andando .6s linear infinite;
+}
 }
 .head .ponto{
     position: absolute;
